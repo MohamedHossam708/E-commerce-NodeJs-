@@ -11,6 +11,7 @@ import { cartModel } from '../../../database/models/Cart.model.js'
 
 
 export const SignUp=asyncHandler(async(req,res,next)=>{
+    
     const isUser = await userModel.findOne({email: req.body.email})
     if(isUser){ return next(new Error("User already existed", {cause:409}))}
 

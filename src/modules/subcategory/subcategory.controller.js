@@ -24,7 +24,7 @@ export const addSubcategory =asyncHandler(async(req,res,next)=>{
        Category: req.params.categoryId,
     })
 
-     res.json({message:"Subcategory added"})
+       res.json({message:"Subcategory added"})
   })
  
 
@@ -37,8 +37,8 @@ export const addSubcategory =asyncHandler(async(req,res,next)=>{
     //checking for subcategory and the parent 
      
     const subcategory= await subCategoryModel.findOne({_id:req.params.id , Category:req.params.categoryId})
-    console.log(subcategory)
-    if(!subcategory) next (new Error("Subcategory dosent excist"))
+    
+    if(!subcategory)return next (new Error("Subcategory dosent excist"))
     
     // checking subcategory owner (can be modified if theres more that one admin can change the categories)
     if(req.user._id.toString() !== subcategory.createdBy.toString()) return next(new Error("you are not the admin whos created this Subcategory"))

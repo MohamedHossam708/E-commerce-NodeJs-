@@ -42,13 +42,7 @@ const schema = new mongoose.Schema({
     
 }, { timestamps: true })
 
-// schema.pre("save",function(){
-//     this.password=bcryptjs.hashSync(this.password,8)
-//     if(this.isModified("password")){
-//         this.password=bcryptjs.hashSync(this.password,8)
 
-//     }
-// })
 export const userModel = mongoose.model('user', schema)
 
 
