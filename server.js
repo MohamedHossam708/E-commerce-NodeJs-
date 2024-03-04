@@ -17,7 +17,14 @@ const port = 3000
 mongoConection()
 
 app.use(cors())
-app.use(express.json())
+
+
+app.use((req,res,next)=>{
+ if(req.originalUrl ==="/Order/Webhook"){
+    return next()
+ }
+ express.json()(req,res,next)
+})
 
 
 

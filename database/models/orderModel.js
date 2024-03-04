@@ -21,7 +21,7 @@ const schema = new mongoose.Schema({
         name:String,
         discount:{type:Number , min:1 ,max:100}
     },
-    status:{type:String , default:"placed", enum:["placed","shipped","deliverd","canceled","refunded"]}
+    status:{type:String , default:"placed", enum:["placed","shipped","deliverd","canceled","refunded","Paid by visa","faild to pay"]}
 
 },{timestamps: true , toJSON:{virtuals:true}, toObject:{virtuals:true} })
 
